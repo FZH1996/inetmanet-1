@@ -169,7 +169,8 @@ void PingApp::handleMessage(cMessage *msg)
         // send a ping
         sendPing();
 
-        if (count > 0 && sendSeqNo % count == 0) {
+        //if (count > 0 && sendSeqNo % count == 0) {
+        if(destAddresses.size() > 1) {
             // choose next dest address
             destAddrIdx++;
             msg->setKind(PING_CHANGE_ADDR);
